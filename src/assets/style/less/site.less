@@ -1,0 +1,419 @@
+body{
+    height: 100%;
+    font-size: @smlFontSize;
+    color: @fontColor;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    height: 100%;
+}
+[type=radio]{
+    bottom: 2px;
+}
+ul,ol{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.title{
+    font-size: @maxFontSize;
+    margin-bottom: @smlSize;
+    font-weight: 500;
+    color:@pageTitle;
+    display:none;
+}
+
+.page-title{
+   margin-bottom: @bigSize;
+  .sub-menu-link{
+    color: @mainColor;
+  }
+  i{
+    font-size: @bigFontSize;
+  }
+}
+//主框架
+.leon-container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+//主页面头部
+.header{
+    width: 100%;
+    height: @headerHeight;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    font-size: @bigFontSize;
+    i{
+        font-size: @midIconSize;
+    }
+    .header-logo{
+        height: @headerHeight;
+        width: @leftMenuWidth;
+        float: left;
+        background-color: @headerLeftColor;
+        padding:0px @smlSize;
+        box-shadow: 0px 0px 20px @headerShadowColor;
+        border-bottom: 0.5px solid @headerBorderColor;
+        .header-logo-img{
+            // background-image: url(../../image/logo.png);
+            background-repeat: no-repeat;
+            background-size: 70%;
+            background-position: center;
+            display: block;
+            height: 100%;
+            width: @leftMenuWidth - @bubbleWidth - 2*@smlSize;
+        }
+        .bubble{
+            width: @bubbleWidth;
+            height: @bubbleHeight;
+            margin-top: (@headerHeight - @bubbleHeight)/2;
+            float: right;
+            @arrowWidth:10px;
+            @arrowHeight:@bubbleHeight/2;
+            position: relative;
+            right: 20px;
+            .bubble-arrow{
+                position: absolute;
+                top: (@bubbleHeight - @arrowHeight)/2;
+                left: 0px;
+                border-width:@arrowHeight/2 @arrowWidth/2;
+                border-style: solid;
+                border-color: transparent @bubbleBgColor transparent transparent;
+            }
+            .bubble-content{
+                width: @bubbleWidth - @arrowWidth;
+                height: 100%;
+                margin-left: @arrowWidth;
+                background: @bubbleBgColor;
+                border-radius: 4px;
+                font-size: @smlFontSize;
+                text-align: center;
+                line-height: @bubbleHeight;
+                color: @bubbleTextColor;
+            }
+        }
+    }
+    .header-nav{
+        margin-left: @leftMenuWidth;
+        height: 100%;
+        border-bottom: 0.5px solid @headerBorderColor;
+        background-color: @headerRightColor;
+        color: @headerImgFontColor;
+        ul.header-menu{
+            float: left;
+            overflow: hidden;
+            padding: 0px;
+            height: 100%;
+            li{
+                .normalHover;
+                float: left;
+                line-height: @headerHeight;
+                i{
+                    margin-right: @smlSize;
+                    &.fa-server{
+                        position: relative;
+                        top:2px;
+                    }
+                }
+                &:last-child{
+                    border: 0;
+                }
+                padding: 0 @bigSize;
+                outline: none;
+            }
+            .active{
+                background-color: darken(@headerRightColor,5%);
+            }
+            .line{
+                padding: 0px @xsSize;
+            }
+        }
+        .header-tool{
+            right: right;
+            overflow: hidden;
+            line-height: @headerHeight;
+            padding-right: @maxSize;
+            height: 100%;
+            .head-img{
+                width: @avater;
+                height: @avater;
+                border-radius:90px;
+                display: block;
+                text-align: center;
+                line-height: @avater;
+                position: relative;
+                top:@smlSize;
+                font-weight: bold;
+                background-color: @headerImgBgColor;
+                color: @headerImgFontColor;
+            }
+            .login-control{
+                float: right;
+                margin: 0 @smlSize 0 0;
+                padding: 0px @smlSize 0px 0px;
+                i{
+                    position: relative;
+                    bottom: 3px;
+                    .normalHover;
+                }
+                .login-name{
+                margin: 0px @bigSize;
+                }
+            }
+            .message{
+                float: right;
+                margin-right: @xsSize;
+                .normalHover;
+                i{
+                    position: relative;
+                    top:2px;
+                }
+                sup{
+                    background-color: @infoColor;
+                    color: #fff;
+                    padding: 1px @xsSize;
+                    border-radius: @navbar-border-radius;
+                    position: relative;
+                    right: 11px;
+                    top: -8px;
+                }
+            }
+        }
+    }
+
+    span.vertical-line{
+        height: @bigIconSize;
+        width: 1px;
+        border-right: 1px solid @headerFontColor;
+    }
+}
+
+//主页面中间内容
+.center-container{
+  background-color: #eee;
+  position: absolute;
+  top: @headerHeight;
+  left:0px;
+  right:0px;
+  bottom:0px;
+}
+
+//主页面左菜单
+.left-menu{
+  z-index: 2;
+  background-color: @menuBgColor;
+  width: @leftMenuWidth;
+  overflow-y:auto;
+  height: 100%;
+  float: left;
+  box-shadow: 0px 0px 20px darken(@secondMenuActiveColor,20%);
+  &>ul{
+      &>li{
+          &>div{
+              position: relative;
+              line-height: @mainMenuHeight;
+              height: @mainMenuHeight;
+              overflow: hidden;
+              border-top: 1px solid @menuBorderBottomColor;
+              .li-text{
+                  .normalHover;
+                  padding-left: @menuTextLeftPadding;
+                  font-size: @bigFontSize;
+                  color:@menuFontColor;
+              }
+              i{
+                  .normalHover;
+                  color:@menuFontColor;
+              }
+              .li-icon{
+                  font-size: @midIconSize;
+                  position: absolute;
+                  left: @maxSize;
+                  top: (@mainMenuHeight - @midIconSize)/2;
+              }
+              .li-state{
+                  font-size: @smlIconSize;
+                  position: absolute;
+                  right: @menuTextPadding;
+                  top: (@mainMenuHeight - @smlIconSize)/2;
+                  &.fa-angle-right{
+                      display: inline;
+                  }
+                  &.fa-angle-down{
+                      display: none;
+                  }
+              }
+          }
+          &:last-of-type{
+              &>div{
+                  border-bottom: 1px solid @menuBorderBottomColor;
+              }
+          }
+          &:first-of-type{
+              &>div{
+                  border-top-width: 0px;
+              }
+          }
+
+          &>ul{
+              display: none;
+              position: relative;
+              .child-menu{
+                color:@menuFontColor;
+                .normalHover;
+                height: @childMenuHeight;
+                line-height: @childMenuHeight;
+                padding-left:@menuTextLeftPadding;
+                font-size: @smlFontSize;
+                position: relative;
+                &:last-of-type{
+                    .guideline{
+                        .guideline-2{
+                            border-width: 0px;
+                        }
+                    }
+                }
+                .guideline{
+                    position: absolute;
+                    width: @menuTextLeftPadding;
+                    height: 100%;
+                    top: 0px;
+                    left: 0px;
+                    padding-left: @menuTextLeftPadding - 25px;
+                    padding-right: @smlSize;
+                    .guideline-n(){
+                        height: 50%;
+                        border-style: dashed;
+                        border-color: @menuFontColor;
+                    }
+                    .guideline-1{
+                        .guideline-n();
+                        border-width: 0px 0px 1px 1px;
+                    }
+                    .guideline-2{
+                        .guideline-n();
+                        border-width: 0px 0px 0px 1px;
+                    }
+                }
+                &>li{
+                    height: 100%;
+                    &:focus{
+                        outline: none;
+                    }
+                    &.selected{
+                        color: @firstMenuActiveColor;
+                    }
+                }
+              }
+          }
+          &.opened{
+              opacity: 1;
+              &>div{
+                background-color: @firstMenuActiveColor;
+                  .li-text{
+                        color:@menuActiveTextColor;
+                    }
+                    i{
+                        color:@menuActiveTextColor;
+                    }
+              }
+              &>ul{
+                  background-color: @secondMenuActiveColor;
+                  display: block;
+              }
+              .li-state{
+                  &.fa-angle-right{
+                      display: none;
+                  }
+                  &.fa-angle-down{
+                      display: inline;
+                  }
+              }
+          }
+      }
+  }
+
+}
+
+//主页面右显示区域
+.right-content{
+  margin-left: @leftMenuWidth;
+  padding: @maxSize;
+  overflow-y:auto;
+  height: 100%;
+}
+
+//输入框提示
+select, input{
+  &.ng-dirty,&.ng-touched{
+      &.ngInvalid,&.ng-invalid{
+          border-color:@errorColor !important;
+          &:focus{
+              box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px @errorColor !important;
+          }
+      }
+  }
+}
+//自定义弹出框样式
+.mpp-alert{
+  position: fixed;
+  z-index: 2048 !important;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  .modal-dialog{
+      transition: transform 0.3s ease-in-out;
+      transform: translate(0,-100px);
+  }
+  z-index: 10;
+}
+
+.form-horizontal .control-label-title {
+  text-align: right !important;
+  font-size: @bigFontSize;
+}
+
+/*div .scroll-1 ,textarea 全局滚动条样式 start*/
+.scroll-1,textarea  {
+  overflow: hidden;rflow:auto;
+}
+textarea::-webkit-scrollbar,.scroll-1::-webkit-scrollbar {
+  width:10px; //竖滚动条
+  height:10px; //横滚动条
+}
+textarea::-webkit-scrollbar-button,.scroll-1::-webkit-scrollbar-button    {
+  background: #000;nd-color:#f1f1f1;
+}
+textarea::-webkit-scrollbar-track,.scroll-1::-webkit-scrollbar-track     {
+  background: #f1f1f1;;
+}
+
+textarea::-webkit-scrollbar-thumb,.scroll-1::-webkit-scrollbar-thumb{
+  background:#c1c1c1;
+  border-radius:4px;
+}
+
+/*div 滚动条样式 end*/
+
+
+/*页面底部按钮区域上外边距*/
+.button-area{
+  margin-top: @bigSize;
+}
+
+/*form-group中占位使用*/
+.group-item{
+  height: @input-height-base;
+}

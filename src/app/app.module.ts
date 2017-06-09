@@ -4,17 +4,34 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import {HeaderComponent} from './component/site/header/header.component';
+import {MenuComponent} from './component/site/menu/menu.component';
+import {AppRoutingModule} from './app.routing';
+import { MenuService } from './component/site/menu/menu.service';
+
+import {PipeModule} from './pipe/pipe.module';
+import {OpenstackModule} from './view/openstack-manager/openstack.module';
+
+// import {VmwareModule} from './view/vmware-manager/vmware.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    PipeModule,
+    AppRoutingModule,
+    OpenstackModule
+    
+    // VmwareModule
   ],
-  providers: [],
+  providers: [MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

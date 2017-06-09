@@ -1,0 +1,38 @@
+<header class="header">
+	<div class="header-logo">
+		<div class="bubble">
+			<div class="bubble-arrow"></div>
+			<div class="bubble-content">
+				Leon
+			</div>
+		</div>
+		<a href="/" class="header-logo-img"></a>
+	</div>
+	<div class="header-nav">
+		<ul class="header-menu">
+			<li routerLink="/platform-overview" routerLinkActive="active"><i class="fa fa-line-chart"></i>firstItem</li>
+			<!--<li class="line"><span class="vertical-line"></span></li>-->
+			<li routerLinkActive="active"><i class="fa fa-list-ul"></i>secondItem</li>
+		</ul>
+		<div class="header-tool">
+			<div class="message" style="margin-right:0px">
+				<!--<img class="head-img" />-->
+				<span class="head-img">{{firstLetter}}</span>
+			</div>
+			<div class="login-control">
+				<span class="vertical-line"></span>
+				<span class="login-name">{{loginName}}</span>
+				<i class="fa fa-sort-desc"></i>
+
+			</div>
+			<div class="message">
+				<i class="fa fa-bell"></i>
+				<!--<sup>2</sup>-->
+			</div>
+			<div class="message">
+				<i class="fa fa-shopping-cart"></i>
+				<!--<sup>12</sup>-->
+			</div>
+		</div>
+	</div>
+</header>

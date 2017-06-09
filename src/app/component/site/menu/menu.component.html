@@ -1,0 +1,24 @@
+<!--component html goes here -->
+<nav class="left-menu">
+    <ul>
+        <li [ngClass]="{'opened':rootMenu.isOpen}"  *ngFor="let rootMenu of menu.levelOneMenus | fmenu">
+            <div (click)="levelOneMenuClick(rootMenu)">
+                <i class = "fa {{rootMenu.iconClass}} li-icon"></i>
+                <span class="li-text">{{rootMenu.name}}</span>
+                <i class="fa fa-angle-right li-state"></i>
+				<i class="fa fa-angle-down li-state"></i>
+            </div>
+            <ul>
+                <div class="child-menu" *ngFor="let childMenu of rootMenu.levelTwoMenus | fmenu " >
+                    <div class="guideline">
+                        <div class="guideline-1"></div>
+						<div class="guideline-2"></div>
+                    </div>
+                    <li [ngClass]="{'selected':isSelected(childMenu.link)}"  routerLink="{{ childMenu.link }}" >
+                        {{childMenu.name}}
+                    </li>
+                </div>
+            </ul>
+        </li> 
+    </ul>
+</nav>

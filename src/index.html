@@ -2,13 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Myapp</title>
+  <title>Century Zheng</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+      to {
+        opacity: 0.5
+      }
+    }
+
+    .index-loading {
+      background: #000;
+      opacity: 0.5;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      animation: fadeIn 0.5s ease-in;
+      z-index: 2049;
+    }
+
+    .index-loading>.loading-context {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -40px;
+      margin-top: -40px;
+      background: url("./assets/images/loading.svg") center center no-repeat;
+    }
+  </style>
 </head>
 <body>
-  <app-root>Loading...</app-root>
+  <app-root>
+    <div class="index-loading">
+      <div class="loading-context"></div>
+    </div>
+  </app-root>
 </body>
 </html>
